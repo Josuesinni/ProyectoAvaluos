@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">ProyectoAvaluos</string>
+    <string name="empresa">HomeCheck</string>
+    <string name="eslogan">“Tu aplicación de confianza para la valuación de tu casa”</string>
+    <string name="btnInicio">Valúa tu Casa</string>
 </resources>
