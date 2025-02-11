@@ -3,4 +3,9 @@
     <string name="empresa">HomeCheck</string>
     <string name="eslogan">“Tu aplicación de confianza para la valuación de tu casa”</string>
     <string name="btnInicio">Valúa tu Casa</string>
+    <string name="phUsuario">Usuario</string>
+    <string name="phPassw">Contraseña</string>
+    <string name="hint">¿Olvidaste tu contraseña?</string>
+    <string name="btnLogin">Iniciar Sesión</string>
+    <string name="btnRegistrarse">Regístrate</string>
 </resources>
