@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".agendar_visita2">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="410dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="15dp"
+            android:text="espacio para el menú de arriba"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:text="¡Agenda tu visita!"
+            android:textSize="@dimen/letraTitulo"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginBottom="@dimen/margenForm"
+            android:layout_height="40dp" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/homeiconp2"
+            android:layout_marginBottom="@dimen/margenForm"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:text="Información del inmueble"
+            android:textSize="@dimen/letraContenido"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/margenForm"
+            />
+        <EditText
+            android:id="@+id/nombreCalle"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/margenForm"
+            android:hint="Nombre de la calle"
+            android:inputType="text"
+            android:text="" />
+        <EditText
+            android:id="@+id/numeroExt"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/margenForm"
+            android:hint="Número Exterior"
+            android:inputType="number"
+            android:text="" />
+        <EditText
+            android:id="@+id/Colonia"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/margenForm"
+            android:hint="Colonia"
+            android:inputType="text"
+            android:text="" />
+        <EditText
+            android:id="@+id/CodigoPostal"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/margenForm"
+            android:hint="C.P"
+            android:inputType="number"
+            android:text="" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+            <TextView
+                android:layout_width="52dp"
+                android:layout_height="20dp" />
+            <Button
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:text="Select File"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/gray"
+                />
+            <TextView
+                android:layout_width="52dp"
+                android:layout_height="20dp" />
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:text="No file selected"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnConfirmarVisita"
+            android:layout_width="180dp"
+            android:layout_marginTop="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:text="Confirmar Visita >"
+            android:backgroundTint="@color/black"
+            />
+        
+    </LinearLayout>
+
+    </LinearLayout>
+
+
