@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="alturaLogo">180dp</dimen>
+    <dimen name="alturaLogoFormulariosInicio">150dp</dimen>
     <dimen name="letraTitulo">28sp</dimen>
-
+    <dimen name="letraContenido">16sp</dimen>
+    <dimen name="margenCentrado">50dp</dimen>
+    <dimen name="margenForm">40dp</dimen>
+    <dimen name="alturaInputs">50dp</dimen>
+    <dimen name="maginBottomInputs">15dp</dimen>
 </resources>

@@ -1,6 +1,23 @@
 <resources>
-    <string name="app_name">ProyectoAvaluos</string>
+    <string name="app_name">HomeCheck</string>
     <string name="empresa">HomeCheck</string>
     <string name="eslogan">“Tu aplicación de confianza para la valuación de tu casa”</string>
     <string name="btnInicio">Valúa tu Casa</string>
+    <string name="phUsuario">Usuario</string>
+    <string name="phPassw">Contraseña</string>
+    <string name="hint">¿Olvidaste tu contraseña?</string>
+    <string name="btnLogin">Iniciar Sesión</string>
+    <string name="btnRegistrarse">Regístrate</string>
+
+    <string-array name="tramites">
+        <item>Información detallada</item>
+        <item>Valúo de casa</item>
+        <item>Trámite 3</item>
+        <item>Trámite 4</item>
+    </string-array>
+
+    <string name="folio">AVXXXXXXXX</string>
+    <string name="total">$X,XXX,XXX.XX</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

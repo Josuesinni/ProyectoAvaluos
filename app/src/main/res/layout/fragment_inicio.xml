@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Inicio">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/backgroundImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.5"
+                android:scaleType="centerCrop"
+                android:src="@drawable/background" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="240dp"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:text="Valoriza Tu Propuesta"
+                android:textColor="@color/black"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:alpha="1"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="290dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="100dp"
+                android:fontFamily="@font/roboto"
+                android:text="Se determina el precio de la propiedad de acuerdo a sus características"
+                android:textAlignment="center"
+                android:textColor="@color/black"/>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</FrameLayout>
