@@ -8,4 +8,21 @@
     <string name="hint">¿Olvidaste tu contraseña?</string>
     <string name="btnLogin">Iniciar Sesión</string>
     <string name="btnRegistrarse">Regístrate</string>
+    <string name="valoriza">VALORIZA TU PROPUESTA</string>
+    <string name="description">Se determina el precio de la propiedad de acuerdo a sus características</string>
+    <string name="agenda">¡Agenda tu visita!</string>
+    <string name="info_personal">Información personal</string>
+    <string name="campreq">**Campos requeridos</string>
+    <string name="hintNE">Nombre / Empresa</string>
+    <string name="NumContacto">Número de contacto</string>
+    <string name="diapreferido">Día preferido para la visita:</string>
+    <string name="btnNext">Siguiente</string>
+    <string-array name="tramites">
+        <item>Información detallada</item>
+        <item>Valúo de casa</item>
+        <item>Trámite 3</item>
+        <item>Trámite 4</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
