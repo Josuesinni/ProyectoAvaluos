@@ -22,8 +22,8 @@ class AgendarCitaInmueble : Fragment() {
             fragmentManager?.beginTransaction()?.replace(R.id.frame_container,AgendarCita())?.commit()
         }
 
-        val btnSiguiente:Button=view.findViewById(R.id.btnConfirmarVisita)
-        btnSiguiente.setOnClickListener {
+        val btnConfirmarVisita:Button=view.findViewById(R.id.btnConfirmarVisita)
+        btnConfirmarVisita.setOnClickListener {
             fragmentManager?.beginTransaction()?.replace(R.id.frame_container,ConfirmacionCita())?.commit()
         }
     }
