@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "820348664531",
+    "project_id": "proyectoavaluos",
+    "storage_bucket": "proyectoavaluos.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:820348664531:android:13ed23bd7b1089924a3226",
+        "android_client_info": {
+          "package_name": "mx.edu.itesca.proyectoavaluos"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUe0zRAgnKovN3_nQ3JpWCEX4TJcllf-I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

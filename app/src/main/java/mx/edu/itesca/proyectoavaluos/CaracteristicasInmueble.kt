@@ -32,11 +32,16 @@ class CaracteristicasInmueble : Fragment() {
         btnRegresar.setOnClickListener {
             fragmentManager?.beginTransaction()?.replace(R.id.frame_container,RegistroAvaluos())?.commit()
         }
-
+        var idAvaluo:String=""
+        val argumentos = getArguments()
+        if (argumentos != null) {
+            idAvaluo=(argumentos.getString("idAvaluo"))!!
+        }
         val acabadosInmueble=AcabadosInmueble()
         val bundle = Bundle()
+        bundle.putString("idAvaluo",idAvaluo)
         btnSala.setOnClickListener {
-            
+            bundle.putString("idInmueble","1")
             bundle.putString("titulo","Sala")
             bundle.putInt("imagen",R.drawable.sala)
             acabadosInmueble.setArguments(bundle)
@@ -44,6 +49,7 @@ class CaracteristicasInmueble : Fragment() {
         }
 
         btnComedor.setOnClickListener {
+            bundle.putString("idInmueble","2")
             bundle.putString("titulo","Comedor")
             bundle.putInt("imagen",R.drawable.comedor)
             acabadosInmueble.setArguments(bundle)
@@ -51,49 +57,49 @@ class CaracteristicasInmueble : Fragment() {
         }
 
         btnCocina.setOnClickListener {
-            
+            bundle.putString("idInmueble","2")
             bundle.putString("titulo","Cocina")
             bundle.putInt("imagen",R.drawable.cocina)
             acabadosInmueble.setArguments(bundle)
             fragmentManager?.beginTransaction()?.replace(R.id.frame_container,acabadosInmueble)?.commit()
         }
         btnBanio.setOnClickListener {
-            
+            bundle.putString("idInmueble","4")
             bundle.putString("titulo","Baño")
             bundle.putInt("imagen",R.drawable.bathroom)
             acabadosInmueble.setArguments(bundle)
             fragmentManager?.beginTransaction()?.replace(R.id.frame_container,acabadosInmueble)?.commit()
         }
         btnRecamara.setOnClickListener {
-            
+            bundle.putString("idInmueble","5")
             bundle.putString("titulo","Recamara")
             bundle.putInt("imagen",R.drawable.recamara)
             acabadosInmueble.setArguments(bundle)
             fragmentManager?.beginTransaction()?.replace(R.id.frame_container,acabadosInmueble)?.commit()
         }
         btnEstancia.setOnClickListener {
-            
+            bundle.putString("idInmueble","6")
             bundle.putString("titulo","Estancia")
             bundle.putInt("imagen",R.drawable.estancia)
             acabadosInmueble.setArguments(bundle)
             fragmentManager?.beginTransaction()?.replace(R.id.frame_container,acabadosInmueble)?.commit()
         }
         btnPosterior.setOnClickListener {
-            
+            bundle.putString("idInmueble","7")
             bundle.putString("titulo","Patio Posterior")
             bundle.putInt("imagen",R.drawable.patio_posterior)
             acabadosInmueble.setArguments(bundle)
             fragmentManager?.beginTransaction()?.replace(R.id.frame_container,acabadosInmueble)?.commit()
         }
         btnEstacionamiento.setOnClickListener {
-            
+            bundle.putString("idInmueble","8")
             bundle.putString("titulo","Estacionamiento")
             bundle.putInt("imagen",R.drawable.estacionamiento)
             acabadosInmueble.setArguments(bundle)
             fragmentManager?.beginTransaction()?.replace(R.id.frame_container,acabadosInmueble)?.commit()
         }
         btnTerraza.setOnClickListener {
-            
+            bundle.putString("idInmueble","9")
             bundle.putString("titulo","Terraza")
             bundle.putInt("imagen",R.drawable.terraza)
             acabadosInmueble.setArguments(bundle)
