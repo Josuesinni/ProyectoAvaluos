@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/bottom_home"
+        android:title="Inicio"
+        android:icon="@drawable/home_black"/>
+    <item android:id="@+id/bottom_avaluos"
+        android:title="Avaluos"
+        android:icon="@drawable/avaluos_black"/>
+    <item android:id="@+id/bottom_agendar"
+        android:title="Agendar Cita"
+        android:icon="@drawable/agenda_black"/>
+    <item android:id="@+id/bottom_informacion"
+        android:title="Ayuda"
+        android:icon="@drawable/informacion_black"/>
+</menu>

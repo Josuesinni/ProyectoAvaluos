@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".AgendarCitaInmueble">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".agendar_visita2">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnRegresarAgenda"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:background="@android:color/transparent"
+                android:textAlignment="center"
+                app:icon="@drawable/back"
+                app:iconSize="24dp"
+                app:iconTint="@color/black" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginRight="70dp"
+                android:layout_weight="0"
+                android:src="@drawable/logo" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/roboto"
+                android:text="¡Agenda tu visita!"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/letraTitulo"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/homeiconp2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="30dp"
+                android:fontFamily="@font/roboto"
+                android:text="Información del inmueble"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/letraContenido" />
+
+            <EditText
+                android:id="@+id/nombreCalle"
+                android:layout_width="300dp"
+                android:layout_height="@dimen/alturaInputs"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/maginBottomInputs"
+                android:ems="10"
+                android:textColor="@color/black"
+                android:hint="Nombre de la calle"
+                android:inputType="text"
+                android:text="" />
+
+            <EditText
+                android:id="@+id/numeroExt"
+                android:layout_width="300dp"
+                android:layout_height="@dimen/alturaInputs"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/maginBottomInputs"
+                android:ems="10"
+                android:fontFamily="@font/roboto"
+                android:hint="Número Exterior"
+                android:inputType="number"
+                android:text="" />
+
+            <EditText
+                android:id="@+id/Colonia"
+                android:layout_width="300dp"
+                android:layout_height="@dimen/alturaInputs"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/maginBottomInputs"
+                android:ems="10"
+                android:hint="Colonia"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:text="" />
+
+            <EditText
+                android:id="@+id/CodigoPostal"
+                android:layout_width="300dp"
+                android:layout_height="@dimen/alturaInputs"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/maginBottomInputs"
+                android:ems="10"
+                android:fontFamily="@font/roboto"
+                android:hint="C.P"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:text="" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                <Button
+                    android:layout_width="160dp"
+                    android:layout_height="50dp"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:fontFamily="@font/roboto"
+                    android:text="Select File"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/margenCentrado"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/roboto"
+                    android:text="No file selected"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnConfirmarVisita"
+                android:layout_width="180dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:backgroundTint="@color/black"
+                android:text="Confirmar Visita >"
+                android:textColor="@color/white"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</FrameLayout>

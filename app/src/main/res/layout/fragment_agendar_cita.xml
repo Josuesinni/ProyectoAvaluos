@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AgendarCita">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:src="@drawable/logo" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvAgenda"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/alturaInputs"
+                android:layout_marginTop="20dp"
+                android:text="¡Agenda tu Visita!"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/letraTitulo"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:src="@drawable/homeicon" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/roboto"
+                android:text="Información personal"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/letraContenido" />
+
+            <EditText
+                android:id="@+id/editTextText2"
+                android:layout_width="350dp"
+                android:layout_height="@dimen/alturaInputs"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margenForm"
+                android:layout_marginBottom="@dimen/maginBottomInputs"
+                android:ems="8"
+                android:hint="Nombre / Empresa"
+                android:inputType="text"
+                android:text=""
+                android:textColor="@color/black" />
+
+            <Spinner
+                android:id="@+id/spr_tramite"
+                android:layout_width="350dp"
+                android:layout_height="@dimen/alturaInputs"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/maginBottomInputs"
+                android:entries="@array/tramites"
+                />
+
+
+            <EditText
+                android:id="@+id/editTextNumber"
+                android:layout_width="350dp"
+                android:layout_height="@dimen/alturaInputs"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/maginBottomInputs"
+                android:ems="10"
+                android:hint="Número de contacto"
+                android:inputType="number"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="350dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/maginBottomInputs"
+                android:text="Día preferido para la visita:"
+                android:textColor="@color/black"
+                android:textSize="@dimen/letraContenido" />
+
+            <EditText
+                android:id="@+id/editTextDate"
+                android:layout_width="350dp"
+                android:layout_height="@dimen/alturaInputs"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/margenForm"
+                android:ems="10"
+                android:hint="DD/MM/AAAA"
+                android:inputType="date"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/btn_AgendaSiguiente"
+                android:layout_width="196dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/black"
+                android:text="Siguiente >"
+                android:textColor="@color/white"
+                android:textSize="18sp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</FrameLayout>

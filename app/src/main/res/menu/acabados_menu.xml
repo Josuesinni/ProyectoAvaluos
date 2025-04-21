@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/bottom_pisos"
+        android:title="Pisos"
+        android:icon="@drawable/piso"/>
+    <item android:id="@+id/bottom_muros"
+        android:title="Muros"
+        android:icon="@drawable/muro"/>
+    <item android:id="@+id/bottom_plafones"
+        android:title="Plafones"
+        android:icon="@drawable/techo"/>
+</menu>
