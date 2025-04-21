@@ -3,9 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".Avaluos"
-    android:background="@color/white">
+    tools:context=".Avaluos">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,43 +22,55 @@
 
     <TextView
         android:id="@+id/textView2_av"
-        android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/roboto"
         android:text="Mis Avalúos"
-        android:textSize="@dimen/letraTitulo"
-        android:textStyle="bold"
         android:textColor="@color/black"
-        />
+        android:textSize="@dimen/letraTitulo"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/imageView3_av"
         android:layout_width="90dp"
         android:layout_height="90dp"
+        android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:layout_gravity="center"
         android:src="@drawable/lista_avaluos" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/tvFolio_av"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:fontFamily="@font/roboto"
             android:gravity="center"
             android:text="Folio"
+            android:textColor="@color/black"
             android:textSize="@dimen/letraContenido"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/tvTotal_av"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:fontFamily="@font/roboto"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:gravity="center"
+            android:text="Total"
+            android:textColor="@color/black"
+            android:textSize="@dimen/letraContenido"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvEstado_av"
@@ -67,30 +80,18 @@
             android:fontFamily="@font/roboto"
             android:gravity="center"
             android:text="Estado"
+            android:textColor="@color/black"
             android:textSize="@dimen/letraContenido"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
-
-        <TextView
-            android:id="@+id/tvTotal_av"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="Total"
-            android:textSize="@dimen/letraContenido"
-            android:fontFamily="@font/roboto"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:textStyle="bold" />
     </LinearLayout>
 
 
-    <GridView
-        android:id="@+id/avaluos_catalogo"
+    <ListView
+        android:id="@+id/listaAvaluos"
         android:layout_width="match_parent"
         android:layout_height="280dp"
+        android:layout_gravity="center"
         android:layout_marginTop="15dp"
-        android:numColumns="1"
         android:paddingHorizontal="6dp" />
 
     <Button
@@ -98,11 +99,11 @@
         android:layout_width="200dp"
         android:layout_height="54dp"
         android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:backgroundTint="@color/black"
         android:fontFamily="@font/roboto"
         android:text="Nuevo avalúo >"
-        android:layout_marginTop="20dp"
-        android:textSize="18sp"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:textSize="18sp" />
 
 </LinearLayout>

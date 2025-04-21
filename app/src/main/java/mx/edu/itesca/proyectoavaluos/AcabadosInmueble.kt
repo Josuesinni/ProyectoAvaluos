@@ -33,7 +33,7 @@ class AcabadosInmueble : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        viewModel = ViewModelProvider(this)[AcabadoViewModel::class.java]
 
         val imagen = view.findViewById<ImageView>(R.id.imagenAcabados)
         val titulo = view.findViewById<TextView>(R.id.tituloAcabados)
@@ -48,9 +48,11 @@ class AcabadosInmueble : Fragment() {
             idInmueble = argumentos.getString("idInmueble")!!
 
             //Registrar avaluo_inmuble
+            Log.d("AVALUO-INMUEBLE",idAvaluo+" "+idInmueble)
+            viewModel.agregarAvaluoInmueble(AvaluoInmueble("",idAvaluo,idInmueble,0))
         }
 
-        viewModel = ViewModelProvider(this)[AcabadoViewModel::class.java]
+
         viewModel.listaAcabados.observe(viewLifecycleOwner, { acabados ->
             Toast.makeText(context, "Cargando...", Toast.LENGTH_SHORT).show()
             pisos.clear()
@@ -68,14 +70,11 @@ class AcabadosInmueble : Fragment() {
         })
         val lista: ListView = view.findViewById(R.id.listaAcabados)
 
-
         pisosAdapter = AcabadosAdapter(this, pisos)
         murosAdapter = AcabadosAdapter(this, muros)
         plafonesAdapter = AcabadosAdapter(this, plafones)
 
         lista.adapter = pisosAdapter
-
-
         lista.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
             val dataModel: Acabado = pisos!![position]
             dataModel.checked = !dataModel.checked
@@ -90,34 +89,24 @@ class AcabadosInmueble : Fragment() {
             val opcionSeleccionada = ArrayList<OpcionSeleccionada>()
             for (piso in pisos) {
                 opcionSeleccionada.add(OpcionSeleccionada("",idInmueble,piso.id))
-                Log.d(
-                    "PISO",
-                    idInmueble + " | " + piso.id + " | " + piso.descripcion + " | " + piso.precio
-                )
+                Log.d("PISO",idInmueble + " | " + piso.id + " | " + piso.descripcion + " | " + piso.precio)
             }
-            for (piso in muros) {
-                opcionSeleccionada.add(OpcionSeleccionada("",idInmueble,piso.id))
-                Log.d(
-                    "MURO",
-                    idInmueble + " " + piso.id + " " + piso.descripcion + " " + piso.precio
-                )
+            for (muro in muros) {
+                opcionSeleccionada.add(OpcionSeleccionada("",idInmueble,muro.id))
+                Log.d("MURO",idInmueble + " " + muro.id + " " + muro.descripcion + " " + muro.precio)
             }
-            for (piso in plafones) {
-                opcionSeleccionada.add(OpcionSeleccionada("",idInmueble,piso.id))
-                Log.d(
-                    "PLAFÓN",
-                    idInmueble + " " + piso.id + " " + piso.descripcion + " " + piso.precio
-                )
+            for (plafon in plafones) {
+                opcionSeleccionada.add(OpcionSeleccionada("",idInmueble,plafon.id))
+                Log.d("PLAFÓN",idInmueble + " " + plafon.id + " " + plafon.descripcion + " " + plafon.precio)
             }
             viewModel.agregarOpcionSeleccionada(opcionSeleccionada)
-            fragmentManager?.beginTransaction()
-                ?.replace(R.id.frame_container, CaracteristicasInmueble())?.commit()
+            Toast.makeText(context,"Opciones seleccionadas registradas",Toast.LENGTH_SHORT).show()
+            //requireActivity().supportFragmentManager.popBackStack()
         }
         val btnRegresar = view.findViewById<Button>(R.id.btnRegresarCaracteristicasInmueble)
 
         btnRegresar.setOnClickListener {
-            fragmentManager?.beginTransaction()
-                ?.replace(R.id.frame_container, CaracteristicasInmueble())?.commit()
+            requireActivity().supportFragmentManager.popBackStack()
         }
 
         val btnOpcionesAcabados =

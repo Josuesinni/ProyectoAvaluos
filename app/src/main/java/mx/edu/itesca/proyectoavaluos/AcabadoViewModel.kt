@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
+import com.google.firebase.firestore.toObject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
@@ -18,7 +19,6 @@ class AcabadoViewModel : ViewModel() {
     private var _listaAcabados = MutableLiveData<List<Acabado>>(emptyList())
     val listaAcabados: LiveData<List<Acabado>> = _listaAcabados
     var lastIdAvaluoInmueble: String = ""
-    var lastIdAvaluo:String=""
     init {
         obtenerAcabados()
     }
@@ -27,11 +27,8 @@ class AcabadoViewModel : ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val resultado = db.collection("opcion").get().await()
-                val acabados = resultado.documents
-                    .mapNotNull { it.toObject(Acabado::class.java) }
-                    .sortedBy { it.descripcion }
+                val acabados = resultado.documents.mapNotNull { it.toObject(Acabado::class.java) }.sortedBy { it.descripcion }
                 _listaAcabados.postValue(acabados)
-              //  insertarAcabadosPrueba()
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -42,9 +39,25 @@ class AcabadoViewModel : ViewModel() {
         avaluoInmueble.id = UUID.randomUUID().toString()
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                db.collection("avaluo_inmueble").document(avaluoInmueble.id).set(avaluoInmueble)
-                    .await()
-                lastIdAvaluoInmueble = avaluoInmueble.id
+                val querySnapshot = db.collection("avaluo_inmueble").whereEqualTo("idInmueble", avaluoInmueble.idInmueble).whereEqualTo("idAvaluo", avaluoInmueble.idAvaluo).get().await()
+                if (querySnapshot.isEmpty) {
+                    db.collection("avaluo_inmueble").document(avaluoInmueble.id).set(avaluoInmueble).await()
+                    lastIdAvaluoInmueble = avaluoInmueble.id
+                }else{
+                    lastIdAvaluoInmueble=querySnapshot.documents.mapNotNull{ it.toObject(AvaluoInmueble::class.java) }.get(0).id
+                    Log.d("ID_AVALUO_INMUBLE",lastIdAvaluoInmueble)
+                    val result = db.collection("opciones_seleccionadas").whereEqualTo("idAvaluoInmueble", lastIdAvaluoInmueble).get().await()
+                    val opcionesSeleccionadas=result.documents.mapNotNull {  it.toObject(OpcionSeleccionada::class.java)}
+                    val acabadosActuales = _listaAcabados.value?.map { acabado ->
+                        if (opcionesSeleccionadas.any { it.idOpcion == acabado.id }) {
+                            acabado.copy(checked = true)
+                        } else {
+                            acabado
+                        }
+                    } ?: emptyList()
+
+                    _listaAcabados.postValue(acabadosActuales)
+                }
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -55,20 +68,85 @@ class AcabadoViewModel : ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 for (opcion in opciones_seleccionadas) {
-                    opcion.id = UUID.randomUUID().toString()
-                    opcion.idAvaluoInmueble = lastIdAvaluoInmueble
-                    Log.d(
-                        "OPCION_SELECCIONADA",
-                        opcion.id + " | " + opcion.idAvaluoInmueble + " | " + opcion.idOpcion
-                    )
-                    //db.collection("opciones_seleccionadas").document(opcion.id).set(opcion).await()
+                    val snapshot = db.collection("opciones_seleccionadas")
+                        .whereEqualTo("idAvaluoInmueble", lastIdAvaluoInmueble)
+                        .get()
+                        .await()
+
+                    val opcionesSeleccionadasEnDB = snapshot.documents.mapNotNull { it.toObject(OpcionSeleccionada::class.java) }
+
+                    val opcionesSeleccionadasNuevas = opciones_seleccionadas.filter { opcionSeleccionadaNueva ->
+                        opcionesSeleccionadasEnDB.none { it.idOpcion == opcionSeleccionadaNueva.idOpcion }
+                    }
+
+                    val opcionesRemovidas = opcionesSeleccionadasEnDB.filter { opcionEnBD ->
+                        opciones_seleccionadas.none { it.idOpcion == opcionEnBD.idOpcion }
+                    }
+
+                    for (opcionNueva in opcionesSeleccionadasNuevas) {
+                        opcionNueva.id = UUID.randomUUID().toString()
+                        opcionNueva.idAvaluoInmueble = lastIdAvaluoInmueble
+                        db.collection("opciones_seleccionadas").document(opcionNueva.id).set(opcionNueva).await()
+                        Log.d("INSERT_OPCION", "Insertada: ${opcionNueva.idOpcion}")
+                    }
+                    for (opcionRemovida in opcionesRemovidas) {
+                        db.collection("opciones_seleccionadas").document(opcionRemovida.id).delete().await()
+                        Log.d("DELETE_OPCION", "Eliminada: ${opcionRemovida.idOpcion}")
+                    }
+                    actualizarTotalAvaluoYSubtotalAvaluoInmueble()
                 }
-                Log.d(
-                    "INSERT_OPCIONES_SELECCIONADAS",
-                    "Todos las opciones seleccionadas se insertaron correctamente"
+                Log.d("INSERT_OPCIONES_SELECCIONADAS","Todos las opciones seleccionadas se insertaron correctamente"
                 )
             } catch (e: Exception) {
                 Log.e("INSERT_OPCIONES_SELECCIONADAS", "Error al insertar: ${e.message}")
+            }
+        }
+    }
+    fun actualizarTotalAvaluoYSubtotalAvaluoInmueble(){
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                val snapshot = db.collection("opciones_seleccionadas")
+                    .whereEqualTo("idAvaluoInmueble", lastIdAvaluoInmueble)
+                    .get()
+                    .await()
+
+                val opcionesSeleccionadas = snapshot.documents.mapNotNull { it.toObject(OpcionSeleccionada::class.java) }
+
+                //En lugar de hacer otra consulta se toma la lista de opciones o de acabados y hacemos un filtrado con las opciones seleccionadas
+                //para posteriormente sumarlas y tener el subtotal del avaluo_inmueble
+                val acabados = _listaAcabados.value?: emptyList()
+                var subtotal=acabados.filter{acabado->opcionesSeleccionadas.any{it.idOpcion==acabado.id}}.sumOf { it.precio }
+
+                //Se busca al avaluo_inmueble que coincida con la id para actualizar su subtotal
+                var resultado_avaluoInmueble=db.collection("avaluo_inmueble").document(lastIdAvaluoInmueble).get().await()
+                val avaluo_inmueble = resultado_avaluoInmueble.toObject(AvaluoInmueble::class.java)
+                val idAvaluo = avaluo_inmueble?.idAvaluo
+                if (avaluo_inmueble != null && idAvaluo != null) {
+                    db.collection("avaluo_inmueble").document(lastIdAvaluoInmueble)
+                        .update("subtotal", subtotal)
+                        .await()
+                } else {
+                    Log.e("ACTUALIZAR_SUBTOTAL", "AvaluoInmueble o idAvaluo es null")
+                }
+
+                //se busca ahora todos los avaluos-inmueble que coincidan con el idAvaluo de la anterior busqueda para actualizar
+                //el total del documento avaluo
+                val snapshotAvaluoInmueble = db.collection("avaluo_inmueble")
+                    .whereEqualTo("idAvaluo", idAvaluo)
+                    .get()
+                    .await()
+
+                val avaluosInmueble = snapshotAvaluoInmueble.documents.mapNotNull { it.toObject(AvaluoInmueble::class.java) }
+                val total = avaluosInmueble.sumOf { it.subtotal }
+
+                if (idAvaluo != null) {
+                    db.collection("avaluo").document(idAvaluo)
+                        .update("total", total)
+                        .await()
+                }
+
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
         }
     }

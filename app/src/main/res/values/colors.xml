@@ -5,4 +5,8 @@
     <color name="colorPrimary">#88C400</color>
     <color name="colorIconSelected">#6E9907</color>
     <color name="colorLink">#0097b2</color>
+    <color name="colorEdit">#14A5C5</color>
+    <color name="colorEditSelected">#15809B</color>
+    <color name="colorDelete">#D73535</color>
+    <color name="colorDeleteSelected">#951717</color>
 </resources>
