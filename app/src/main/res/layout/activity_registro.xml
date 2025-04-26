@@ -94,6 +94,13 @@
         android:text=""
         android:textColor="@color/black" />
 
+    <TextView
+        android:id="@+id/tvrError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorDeleteSelected"
+        android:visibility="invisible"/>
+
     <Button
         android:id="@+id/btnRegistrar"
         android:layout_width="220dp"
