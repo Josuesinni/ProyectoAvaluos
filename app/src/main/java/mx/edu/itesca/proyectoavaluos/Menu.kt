@@ -27,7 +27,7 @@ class Menu : AppCompatActivity() {
                     true
                 }
                 R.id.bottom_agendar->{
-                    replaceFragment(AgendarCita())
+                    replaceFragment(Citas())
                     true
                 }
                 R.id.bottom_informacion->{

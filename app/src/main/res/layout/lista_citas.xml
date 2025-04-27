@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/tvNombre"
+        android:layout_width="90dp"
+        android:layout_height="40dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:text="Nombre" />
+
+    <TextView
+        android:id="@+id/tvFecha"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:text="Fecha" />
+
+    <TextView
+        android:id="@+id/tvEstatus"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:text="Estatus" />
+
+    <ImageButton
+        android:id="@+id/btn_editar_cita"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/icon_editar"
+        android:backgroundTint="@color/colorEdit" />
+
+    <ImageButton
+        android:id="@+id/btn_eliminar_cita"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/baseline_auto_delete_24"
+        android:backgroundTint="@color/colorDelete" />
+</LinearLayout>

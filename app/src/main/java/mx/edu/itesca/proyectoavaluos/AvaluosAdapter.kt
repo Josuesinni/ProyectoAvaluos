@@ -5,18 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.Button
-import android.widget.CheckBox
 import android.widget.ImageButton
 import android.widget.TextView
 
 class AvaluosAdapter: BaseAdapter {
     var avaluos = ArrayList<Avaluo>()
     var contexto: Avaluos? = null
+    var onEliminarAvaluo: ((String) -> Unit)? = null
 
-    constructor(contexto: Avaluos, avaluos: ArrayList<Avaluo>) {
+    constructor(contexto: Avaluos, avaluos: ArrayList<Avaluo>, eliminarAvaluo: ((String) -> Unit)?) {
         this.avaluos = avaluos
         this.contexto = contexto
+        this.onEliminarAvaluo= eliminarAvaluo
     }
 
     override fun getCount(): Int {
@@ -55,6 +55,9 @@ class AvaluosAdapter: BaseAdapter {
             val fragmento = RegistroAvaluos()
             fragmento.arguments = bundle
             contexto?.fragmentManager?.beginTransaction()?.replace(R.id.frame_container, fragmento)?.addToBackStack(null)?.commit()
+        }
+        eliminar.setOnClickListener{
+            onEliminarAvaluo?.invoke(avaluo.id)
         }
         return vista
     }
