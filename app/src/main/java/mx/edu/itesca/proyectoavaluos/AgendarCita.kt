@@ -26,11 +26,29 @@ class AgendarCita : Fragment() {
         val numeroEditText: EditText = view.findViewById(R.id.editTextNumber)
         val fechaEditText: EditText = view.findViewById(R.id.editTextDate)
 
+        val nombre = arguments?.getString("nombre")
+        val tramite = arguments?.getString("tramite")
+        val numero = arguments?.getString("numero")
+        val fecha = arguments?.getString("fecha")
+        val citaId = arguments?.getString("id")
+
+        if (!nombre.isNullOrEmpty()) nombreEditText.setText(nombre)
+        if (!numero.isNullOrEmpty()) numeroEditText.setText(numero)
+        if (!fecha.isNullOrEmpty()) fechaEditText.setText(fecha)
+        if (!tramite.isNullOrEmpty()) {
+            val adapter = tramiteSpinner.adapter
+            for (i in 0 until adapter.count) {
+                if (adapter.getItem(i).toString() == tramite) {
+                    tramiteSpinner.setSelection(i)
+                    break
+                }
+            }
+        }
+
         btnSiguiente.setOnClickListener {
             val nombre = nombreEditText.text.toString().trim()
             val tramite = tramiteSpinner.selectedItem.toString()
             val numero = numeroEditText.text.toString().trim()
-            //val fecha = fechaEditText.text.toString().trim()
             val fecha = fechaEditText.text.toString().trim()
 
             // Validaciones
@@ -39,10 +57,15 @@ class AgendarCita : Fragment() {
             } else {
                 // Si todo está bien, mandamos los datos al siguiente fragment
                 val bundle = bundleOf(
+                    "id" to citaId,
                     "nombre" to nombre,
                     "tramite" to tramite,
                     "numero" to numero,
-                    "fecha" to fecha
+                    "fecha" to fecha,
+                    "calle" to arguments?.getString("calle"),
+                    "colonia" to arguments?.getString("colonia"),
+                    "codigo_postal" to arguments?.getInt("codigo_postal"),
+                    "num_exterior" to arguments?.getInt("num_exterior")
                 )
 
                 val fragment = AgendarCitaInmueble()

@@ -36,12 +36,12 @@ class CitaViewModel : ViewModel() {
 
     fun agregarCita(cita: Cita) {
         val citaId = UUID.randomUUID().toString()
-        cita.id = citaId
+        //cita.id = citaId
 
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                db.collection("visita").document(cita.id).set(cita).await()
-                obtenerCitas()  // 🚀 Actualiza la lista automáticamente
+                db.collection("visita").document(citaId).set(cita).await()
+                obtenerCitas()
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -59,4 +59,17 @@ class CitaViewModel : ViewModel() {
             }
         }
     }
+
+    fun actualizarCita(cita: Cita) {
+        val db = Firebase.firestore
+        db.collection("visita").document(cita.id)
+            .set(cita)
+            .addOnSuccessListener {
+                Log.d("Cita", "Cita actualizada")
+            }
+            .addOnFailureListener { e ->
+                Log.e("Cita", "Error actualizando cita", e)
+            }
+    }
+
 }

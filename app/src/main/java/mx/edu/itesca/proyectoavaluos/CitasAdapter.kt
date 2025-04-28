@@ -34,17 +34,26 @@ class CitasAdapter(
         val btnEditar = vista.findViewById<ImageButton>(R.id.btn_editar_cita)
         val btnEliminar = vista.findViewById<ImageButton>(R.id.btn_eliminar_cita)
 
-        tvNombre.text = cita.titular
-        tvFecha.text = cita.fecha
-        val estadoTexto = if (cita.estatus) "Confirmada" else "Pendiente"
-        tvEstatus.text = estadoTexto
+        tvNombre.setText(""+cita.titular)
+        tvFecha.setText(""+cita.fecha)
+        val estatus = if (cita.estatus) "Confirmada" else "Pendiente"
+        tvEstatus.setText(estatus)
 
         btnEditar.setOnClickListener {
             val bundle = Bundle().apply {
+                /*putString("id",""+cita.id)
+                putString("nombre",""+cita.titular)
+                putString("fecha", ""+cita.fecha)*/
                 putString("id", cita.id)
                 putString("nombre", cita.titular)
+                putString("tramite", cita.tramite)
+                putString("numero", cita.numero_contacto)
                 putString("fecha", cita.fecha)
-                putBoolean("estado", cita.estatus)
+                putString("calle", cita.calle)
+                putString("colonia", cita.colonia)
+                putInt("codigo_postal", cita.codigo_postal)
+                putInt("num_exterior", cita.num_exterior)
+                putBoolean("estado", true)
             }
             val fragmento = AgendarCita()
             fragmento.arguments = bundle
