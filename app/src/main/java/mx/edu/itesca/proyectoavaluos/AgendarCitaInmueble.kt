@@ -17,6 +17,11 @@ class AgendarCitaInmueble : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val nombre = arguments?.getString("nombre")
+        val tramite = arguments?.getString("tramite")
+        val numero = arguments?.getString("numero")
+        val fecha = arguments?.getString("fecha")
+
         val btnRegresarAgenda:Button=view.findViewById(R.id.btnRegresarAgenda)
         btnRegresarAgenda.setOnClickListener {
             fragmentManager?.beginTransaction()?.replace(R.id.frame_container,AgendarCita())?.commit()

@@ -1,206 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/info_bg"
-    android:orientation="vertical"
     tools:context=".Informacion">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="40dp"
-        android:fontFamily="@font/roboto"
-        android:text="Información"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="@dimen/letraTitulo"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_width="335dp"
-        android:layout_height="90dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="90dp"
-        android:background="@color/white"
-        android:textColor="@color/black"
-        android:fontFamily="@font/roboto"
-        android:text="HomeCheck es la herramienta que necesitabas para ayudar a valuar tu casa. Considera todas las opciones y características con tan solo un click.  ¡Empieza ahora! "
-        android:textAlignment="center"
-        android:textSize="@dimen/letraContenido" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="25dp"
-        android:fontFamily="@font/roboto"
-        android:text="CONTÁCTANOS"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold" />
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginBottom="5dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="20dp"
-            android:layout_height="40dp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:src="@drawable/instagram_icon" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.5"
+                android:scaleType="centerCrop"
+                android:src="@drawable/info_bg" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="10dp"
-            android:background="@color/white"
-            android:fontFamily="@font/roboto"
-            android:gravity="center"
-            android:text="/@homecheck.mx"
-            android:textColor="@color/black"
-            android:textSize="@dimen/letraContenido"
-            android:textStyle="italic" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="80dp"
+                android:layout_marginBottom="40dp"
+                android:fontFamily="@font/roboto"
+                android:text="Información"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/letraTitulo"
+                android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="335dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="38dp"
+                android:layout_marginTop="140dp"
+                android:background="@color/white"
+                android:fontFamily="@font/roboto"
+                android:text="HomeCheck es la herramienta que necesitabas para ayudar a valuar tu casa. Considera todas las opciones y características con tan solo un click.  ¡Empieza ahora! "
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/letraContenido" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="250dp"
+                android:fontFamily="@font/roboto"
+                android:text="CONTÁCTANOS"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="290dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="40dp" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/instagram_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:background="@color/white"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:text="/@homecheck.mx"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/letraContenido"
+                    android:textStyle="italic" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="335dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="40dp" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/facebook_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:background="@color/white"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:text="Home Check México"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/letraContenido"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="380dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="40dp" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/website_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:background="@color/white"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:text="www.homecheck.mx"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/letraContenido"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/roboto"
+                android:layout_marginTop="440dp"
+                android:text="SOPORTE"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="490dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="40dp" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/call_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:background="@color/white"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:text="55-123-45678"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/letraContenido"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="535dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="40dp" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/mail_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:background="@color/white"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:text="homecheck@soporte.com"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/letraContenido"
+                    android:textStyle="italic" />
+            </LinearLayout>
+        </RelativeLayout>
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginBottom="5dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="20dp"
-            android:layout_height="40dp" />
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:src="@drawable/facebook_icon" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="10dp"
-            android:background="@color/white"
-            android:fontFamily="@font/roboto"
-            android:gravity="center"
-            android:text="Home Check México"
-            android:textColor="@color/black"
-            android:textSize="@dimen/letraContenido"
-            android:textStyle="italic" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginBottom="15dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="20dp"
-            android:layout_height="40dp" />
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:src="@drawable/website_icon" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="10dp"
-            android:background="@color/white"
-            android:fontFamily="@font/roboto"
-            android:gravity="center"
-            android:text="www.homecheck.mx"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="@dimen/letraContenido"
-            android:textStyle="italic" />
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:layout_gravity="center"
-        android:fontFamily="@font/roboto"
-        android:text="SOPORTE"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginBottom="15dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="20dp"
-            android:layout_height="40dp" />
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:src="@drawable/call_icon" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="10dp"
-            android:background="@color/white"
-            android:fontFamily="@font/roboto"
-            android:gravity="center"
-            android:text="55-123-45678"
-            android:textSize="@dimen/letraContenido"
-            android:textColor="@color/black"
-            android:textStyle="italic" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginBottom="15dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="20dp"
-            android:layout_height="40dp" />
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:src="@drawable/mail_icon" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="10dp"
-            android:background="@color/white"
-            android:fontFamily="@font/roboto"
-            android:gravity="center"
-            android:text="homecheck@soporte.com"
-            android:textAlignment="center"
-            android:textSize="@dimen/letraContenido"
-            android:textColor="@color/black"
-            android:textStyle="italic" />
-    </LinearLayout>
-
-</LinearLayout>
+</FrameLayout>

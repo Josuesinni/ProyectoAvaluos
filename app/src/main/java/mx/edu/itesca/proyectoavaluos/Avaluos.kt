@@ -1,6 +1,7 @@
 package mx.edu.itesca.proyectoavaluos
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -38,16 +39,18 @@ class Avaluos : Fragment() {
 
         })
         val lista: ListView = view.findViewById(R.id.listaAvaluos)
-        avaluosAdapter = AvaluosAdapter(this, listAvaluos)
+        avaluosAdapter = AvaluosAdapter(this, listAvaluos,{ idAvaluo ->
+            viewModel.eliminarAvaluo(idAvaluo)
+        })
         lista.adapter = avaluosAdapter
 
         val btnNuevoAvaluo: Button =view.findViewById(R.id.btnNewAvaluo)
         btnNuevoAvaluo.setOnClickListener {
-            viewModel.agregarAvaluo()
             val bundle = Bundle()
-            bundle.putString("idAvaluo",""+viewModel.lastIdAvaluo)
-            bundle.putString("folio",""+viewModel.lastFolio)
+            bundle.putString("idAvaluo",viewModel.lastIdAvaluo)
+            bundle.putString("folio",viewModel.lastFolio.toString())
             bundle.putBoolean("tipo",false)
+            viewModel.agregarAvaluo()
             val fragmento = RegistroAvaluos()
             fragmento.arguments = bundle
             fragmentManager?.beginTransaction()?.replace(R.id.frame_container, fragmento)?.addToBackStack(null)?.commit()
