@@ -1,20 +1,20 @@
 package mx.edu.itesca.proyectoavaluos
 
+import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
 
-class CitasAdapter: BaseAdapter {
-    var citas = ArrayList<Cita>()
-    var contexto: Citas? = null
-
-    constructor(contexto: Citas, citas: ArrayList<Cita>) {
-        this.citas = citas
-        this.contexto = contexto
-    }
+class CitasAdapter(
+    private val context: Context,
+    private var citas: ArrayList<Cita>,
+    private val onEliminarCita: ((String) -> Unit)?
+) : BaseAdapter() {
 
     override fun getCount(): Int = citas.size
 
@@ -23,7 +23,7 @@ class CitasAdapter: BaseAdapter {
     override fun getItemId(position: Int): Long = position.toLong()
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        var inflador = LayoutInflater.from(contexto?.context)
+        val inflador = LayoutInflater.from(context)
         val vista = convertView ?: inflador.inflate(R.layout.lista_citas, parent, false)
 
         val cita = citas[position]
@@ -40,13 +40,28 @@ class CitasAdapter: BaseAdapter {
         tvEstatus.text = estadoTexto
 
         btnEditar.setOnClickListener {
-            // Aquí pondrías el código para editar la cita
+            val bundle = Bundle().apply {
+                putString("id", cita.id)
+                putString("nombre", cita.titular)
+                putString("fecha", cita.fecha)
+                putBoolean("estado", cita.estatus)
+            }
+            val fragmento = AgendarCita()
+            fragmento.arguments = bundle
+            if (context is FragmentActivity) {
+                context.supportFragmentManager.beginTransaction()
+                    .replace(R.id.frame_container, fragmento)
+                    .addToBackStack(null)
+                    .commit()
+            }
         }
 
+
         btnEliminar.setOnClickListener {
-            // Aquí pondrías el código para eliminar la cita
+            onEliminarCita?.invoke(cita.id)
         }
 
         return vista
     }
 }
+

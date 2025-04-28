@@ -11,11 +11,15 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 
 class Citas : Fragment() {
-    var listCitas = ArrayList<Cita>()
-    lateinit var citasAdapter: CitasAdapter
+
+    private var listCitas = ArrayList<Cita>()
+    private lateinit var citasAdapter: CitasAdapter
     private lateinit var viewModel: CitaViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_citas, container, false)
     }
 
@@ -23,24 +27,26 @@ class Citas : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(this)[CitaViewModel::class.java]
-        viewModel.listaCitas.observe(viewLifecycleOwner, { citas ->
-            Toast.makeText(context, "Cargando citas...", Toast.LENGTH_SHORT).show()
+
+        val lista: ListView = view.findViewById(R.id.listaCitas)
+        citasAdapter = CitasAdapter(requireContext(), listCitas) { idCita ->
+            viewModel.eliminarCita(idCita)
+        }
+        lista.adapter = citasAdapter
+
+        viewModel.listaCitas.observe(viewLifecycleOwner) { citas ->
             listCitas.clear()
             listCitas.addAll(citas)
             citasAdapter.notifyDataSetChanged()
-        })
-
-        val lista: ListView = view.findViewById(R.id.listaCitas)
-        citasAdapter = CitasAdapter(this, listCitas)
-        lista.adapter = citasAdapter
+        }
 
         val btnNuevaCita: Button = view.findViewById(R.id.btnNewCita)
         btnNuevaCita.setOnClickListener {
             val fragment = AgendarCita()
-            fragmentManager?.beginTransaction()
-                ?.replace(R.id.frame_container, fragment)
-                ?.addToBackStack(null)
-                ?.commit()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.frame_container, fragment)
+                .addToBackStack(null)
+                .commit()
         }
     }
 }

@@ -30,6 +30,7 @@ class AgendarCita : Fragment() {
             val nombre = nombreEditText.text.toString().trim()
             val tramite = tramiteSpinner.selectedItem.toString()
             val numero = numeroEditText.text.toString().trim()
+            //val fecha = fechaEditText.text.toString().trim()
             val fecha = fechaEditText.text.toString().trim()
 
             // Validaciones
