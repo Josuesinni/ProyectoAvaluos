@@ -1,20 +1,21 @@
 package mx.edu.itesca.proyectoavaluos
 
+import android.content.Context
+import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
 
-class CitasAdapter: BaseAdapter {
-    var citas = ArrayList<Cita>()
-    var contexto: Citas? = null
-
-    constructor(contexto: Citas, citas: ArrayList<Cita>) {
-        this.citas = citas
-        this.contexto = contexto
-    }
+class CitasAdapter(
+    private val context: Context,
+    private var citas: ArrayList<Cita>,
+    private val onEliminarCita: ((String) -> Unit)?
+) : BaseAdapter() {
 
     override fun getCount(): Int = citas.size
 
@@ -23,7 +24,7 @@ class CitasAdapter: BaseAdapter {
     override fun getItemId(position: Int): Long = position.toLong()
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        var inflador = LayoutInflater.from(contexto?.context)
+        val inflador = LayoutInflater.from(context)
         val vista = convertView ?: inflador.inflate(R.layout.lista_citas, parent, false)
 
         val cita = citas[position]
@@ -34,17 +35,40 @@ class CitasAdapter: BaseAdapter {
         val btnEditar = vista.findViewById<ImageButton>(R.id.btn_editar_cita)
         val btnEliminar = vista.findViewById<ImageButton>(R.id.btn_eliminar_cita)
 
-        tvNombre.text = cita.titular
-        tvFecha.text = cita.fecha
-        val estadoTexto = if (cita.estatus) "Confirmada" else "Pendiente"
-        tvEstatus.text = estadoTexto
+        tvNombre.setText(""+cita.titular)
+        tvFecha.setText(""+cita.fecha)
+        val estatus = if (cita.estatus) "Confirmada" else "Pendiente"
+        tvEstatus.setText(estatus)
 
         btnEditar.setOnClickListener {
-            // Aquí pondrías el código para editar la cita
+            Log.d("IdCita",cita.id)
+            val bundle = Bundle().apply {
+                putString("id", cita.id)
+                putString("nombre", cita.titular)
+                putString("tramite", cita.tramite)
+                putString("numero", cita.numero_contacto)
+                putString("fecha", cita.fecha)
+                putString("calle", cita.calle)
+                putString("colonia", cita.colonia)
+                putInt("codigo_postal", cita.codigo_postal)
+                putInt("num_exterior", cita.num_exterior)
+
+                putBoolean("estado", true)
+                putBoolean("tipo",true)
+            }
+            val fragmento = AgendarCita()
+            fragmento.arguments = bundle
+            if (context is FragmentActivity) {
+                context.supportFragmentManager.beginTransaction()
+                    .replace(R.id.frame_container, fragmento)
+                    .addToBackStack(null)
+                    .commit()
+            }
         }
 
+
         btnEliminar.setOnClickListener {
-            // Aquí pondrías el código para eliminar la cita
+            onEliminarCita?.invoke(cita.id)
         }
 
         return vista

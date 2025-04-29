@@ -119,29 +119,6 @@
                 android:textColor="@color/black"
                 android:text="" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_gravity="center">
-                <Button
-                    android:layout_width="160dp"
-                    android:layout_height="50dp"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:fontFamily="@font/roboto"
-                    android:text="Select File"
-                    android:textColor="@color/white"
-                    android:layout_marginLeft="@dimen/margenCentrado"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/roboto"
-                    android:text="No file selected"
-                    android:textColor="@color/black" />
-            </LinearLayout>
-
             <Button
                 android:id="@+id/btnConfirmarVisita"
                 android:layout_width="180dp"

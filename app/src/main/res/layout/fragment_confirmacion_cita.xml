@@ -35,16 +35,6 @@
             android:textStyle="bold"
             android:textColor="@color/black"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Folio: #000000"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/letraContenido"
-            android:textStyle="bold"
-            android:layout_marginTop="20dp"/>
-
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="120dp"
@@ -74,29 +64,6 @@
             android:layout_marginLeft="@dimen/margenCentrado"
             android:layout_marginRight="@dimen/margenCentrado"
             android:textColor="@color/black"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="El día de la cita se deberán tener todos los documentos requeridos."
-            android:textSize="@dimen/letraContenido"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="@dimen/margenCentrado"
-            android:layout_marginRight="@dimen/margenCentrado"
-            android:textColor="@color/black"
-            />
-        <TextView
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="¿Qué documentos tengo que tener a la mano?"
-            android:textSize="10sp"
-            android:textStyle="bold"
-            android:textAlignment="center"
-
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="214dp"
-            android:layout_marginRight="@dimen/margenCentrado"
-            android:textColor="@color/colorLink"
             />
 
         <Button

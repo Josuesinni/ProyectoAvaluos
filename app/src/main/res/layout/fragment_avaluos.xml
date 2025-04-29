@@ -49,7 +49,7 @@
 
         <TextView
             android:id="@+id/tvFolio_av"
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/roboto"
@@ -80,6 +80,17 @@
             android:fontFamily="@font/roboto"
             android:gravity="center"
             android:text="Estado"
+            android:textColor="@color/black"
+            android:textSize="@dimen/letraContenido"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvAcciones_av"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:fontFamily="@font/roboto"
+            android:gravity="center"
+            android:text="Acciones"
             android:textColor="@color/black"
             android:textSize="@dimen/letraContenido"
             android:textStyle="bold" />

@@ -20,7 +20,7 @@ class ConfirmacionCita : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val btnInicioAgenda: Button =view.findViewById(R.id.btnInicioAgenda)
         btnInicioAgenda.setOnClickListener {
-            fragmentManager?.beginTransaction()?.replace(R.id.frame_container,AgendarCita())?.commit()
+            fragmentManager?.beginTransaction()?.replace(R.id.frame_container,Citas())?.commit()
         }
     }
 }

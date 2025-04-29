@@ -10,6 +10,8 @@ import android.widget.Button
 import android.widget.ListView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 
 
 class Avaluos : Fragment() {
@@ -44,14 +46,22 @@ class Avaluos : Fragment() {
 
         val btnNuevoAvaluo: Button =view.findViewById(R.id.btnNewAvaluo)
         btnNuevoAvaluo.setOnClickListener {
-            val bundle = Bundle()
-            bundle.putString("idAvaluo",viewModel.lastIdAvaluo)
-            bundle.putString("folio",viewModel.lastFolio.toString())
-            bundle.putBoolean("tipo",false)
-            viewModel.agregarAvaluo()
-            val fragmento = RegistroAvaluos()
-            fragmento.arguments = bundle
-            fragmentManager?.beginTransaction()?.replace(R.id.frame_container, fragmento)?.addToBackStack(null)?.commit()
+            lifecycleScope.launch {
+                val resultado = viewModel.agregarAvaluo()
+                resultado?.let { (idAvaluo, folio) ->
+                    val bundle = Bundle()
+                    bundle.putString("idAvaluo", idAvaluo)
+                    bundle.putString("folio", folio.toString())
+                    bundle.putBoolean("tipo", false)
+
+                    val fragmento = RegistroAvaluos()
+                    fragmento.arguments = bundle
+                    fragmentManager?.beginTransaction()
+                        ?.replace(R.id.frame_container, fragmento)
+                        ?.addToBackStack(null)
+                        ?.commit()
+                }
+            }
         }
     }
 }
