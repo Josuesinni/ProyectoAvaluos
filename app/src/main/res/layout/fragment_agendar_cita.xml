@@ -15,6 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <Button
                 android:id="@+id/btnRegresarCita"
                 android:layout_width="70dp"
@@ -24,6 +25,7 @@
                 app:icon="@drawable/back"
                 app:iconSize="24dp"
                 app:iconTint="@color/black" />
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -75,6 +77,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/margenForm"
                 android:layout_marginBottom="@dimen/maginBottomInputs"
+                android:drawableStart="@drawable/empresa"
                 android:ems="8"
                 android:hint="Nombre / Empresa"
                 android:inputType="text"
@@ -88,8 +91,7 @@
                 android:layout_height="@dimen/alturaInputs"
                 android:layout_gravity="center"
                 android:layout_marginBottom="@dimen/maginBottomInputs"
-                android:entries="@array/tramites"
-                />
+                android:entries="@array/tramites" />
 
 
             <EditText
@@ -98,6 +100,7 @@
                 android:layout_height="@dimen/alturaInputs"
                 android:layout_gravity="center"
                 android:layout_marginBottom="@dimen/maginBottomInputs"
+                android:drawableStart="@drawable/celular"
                 android:ems="10"
                 android:hint="Número de contacto"
                 android:inputType="number"
@@ -120,6 +123,7 @@
                 android:layout_height="@dimen/alturaInputs"
                 android:layout_gravity="center"
                 android:layout_marginBottom="@dimen/margenForm"
+                android:drawableStart="@drawable/calendar"
                 android:ems="10"
                 android:hint="DD/MM/AAAA"
                 android:inputType="date"
@@ -133,7 +137,7 @@
                 android:backgroundTint="@color/black"
                 android:text="Siguiente >"
                 android:textColor="@color/white"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
         </LinearLayout>
 
     </LinearLayout>

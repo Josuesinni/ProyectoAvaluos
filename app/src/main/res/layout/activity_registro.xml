@@ -40,11 +40,14 @@
         android:inputType="text"
         android:maxLength="40"
         android:text=""
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:drawableStart="@drawable/usuario"
+        />
 
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="260dp"
+        android:drawableStart="@drawable/contra"
 
         android:layout_height="@dimen/alturaInputs"
         android:layout_gravity="center"
@@ -69,7 +72,9 @@
         android:inputType="textPassword"
         android:maxLength="20"
         android:text=""
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:drawableStart="@drawable/contra"
+        />
 
 
     <EditText
@@ -83,7 +88,9 @@
         android:hint="Telefono"
         android:inputType="text"
         android:maxLength="10"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:drawableStart="@drawable/celular"
+        />
 
     <EditText
         android:id="@+id/etEmail"
@@ -97,12 +104,14 @@
         android:inputType="text"
         android:maxLength="255"
         android:text=""
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:drawableStart="@drawable/correo"
+        />
     <TextView
         android:id="@+id/tvrError"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorDeleteSelected"
+        android:textColor="@color/colorDelete"
         android:visibility="invisible"/>
     <Button
         android:id="@+id/btnRegistrar"

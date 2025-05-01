@@ -81,7 +81,9 @@
                 android:hint="Nombre de la calle"
                 android:inputType="text"
                 android:maxLength="255"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:drawableStart="@drawable/calle"/>
+
 
             <EditText
                 android:id="@+id/numeroExt"
@@ -94,7 +96,9 @@
                 android:hint="Número Exterior"
                 android:inputType="number"
                 android:maxLength="5"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:drawableStart="@drawable/numero"
+                />
 
             <EditText
                 android:id="@+id/Colonia"
@@ -106,7 +110,9 @@
                 android:hint="Colonia"
                 android:inputType="text"
                 android:maxLength="255"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:drawableStart="@drawable/colonia"
+                />
 
             <EditText
                 android:id="@+id/CodigoPostal"
@@ -119,7 +125,9 @@
                 android:hint="C.P"
                 android:inputType="number"
                 android:maxLength="5"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:drawableStart="@drawable/cp"
+                />
 
             <Button
                 android:id="@+id/btnConfirmarVisita"

@@ -14,6 +14,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import mx.edu.itesca.proyectoavaluos.databinding.ActivityRegistroBinding
@@ -60,7 +61,6 @@ class Registro : AppCompatActivity() {
                 errorTv.visibility = View.VISIBLE
             } else {
                 errorTv.visibility = View.INVISIBLE
-
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(email.text.toString(), password.text.toString())
                     .addOnSuccessListener { authResult ->
                         val uid = authResult.user?.uid
@@ -88,7 +88,13 @@ class Registro : AppCompatActivity() {
                         }
                     }
                     .addOnFailureListener { e ->
-                        Toast.makeText(this, "Error al registrar usuario: ${e.message}", Toast.LENGTH_LONG).show()
+                        if (e is FirebaseAuthUserCollisionException) {
+                            errorTv.text = "El correo ya está registrado"
+                            errorTv.visibility = View.VISIBLE
+                        } else {
+                            errorTv.text = "Error al registrar usuario: ${e.message}"
+                            errorTv.visibility = View.VISIBLE
+                        }
                     }
             }
         }
