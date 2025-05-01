@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".AgendarCitaInmueble">
 
     <LinearLayout
@@ -11,6 +11,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".agendar_visita2">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -77,10 +78,10 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="@dimen/maginBottomInputs"
                 android:ems="10"
-                android:textColor="@color/black"
                 android:hint="Nombre de la calle"
                 android:inputType="text"
-                android:text="" />
+                android:maxLength="255"
+                android:textColor="@color/black" />
 
             <EditText
                 android:id="@+id/numeroExt"
@@ -92,7 +93,8 @@
                 android:fontFamily="@font/roboto"
                 android:hint="Número Exterior"
                 android:inputType="number"
-                android:text="" />
+                android:maxLength="5"
+                android:textColor="@color/black" />
 
             <EditText
                 android:id="@+id/Colonia"
@@ -103,8 +105,8 @@
                 android:ems="10"
                 android:hint="Colonia"
                 android:inputType="text"
-                android:textColor="@color/black"
-                android:text="" />
+                android:maxLength="255"
+                android:textColor="@color/black" />
 
             <EditText
                 android:id="@+id/CodigoPostal"
@@ -116,8 +118,8 @@
                 android:fontFamily="@font/roboto"
                 android:hint="C.P"
                 android:inputType="number"
-                android:textColor="@color/black"
-                android:text="" />
+                android:maxLength="5"
+                android:textColor="@color/black" />
 
             <Button
                 android:id="@+id/btnConfirmarVisita"
@@ -127,8 +129,7 @@
                 android:layout_marginTop="50dp"
                 android:backgroundTint="@color/black"
                 android:text="Confirmar Visita >"
-                android:textColor="@color/white"
-                />
+                android:textColor="@color/white" />
 
         </LinearLayout>
 

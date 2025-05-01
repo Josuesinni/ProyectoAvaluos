@@ -39,7 +39,6 @@
             android:layout_height="60dp"
             android:src="@drawable/icon_editar"
             android:backgroundTint="@color/colorEdit"
-
             />
         <ImageButton
             android:id="@+id/btn_eliminar"

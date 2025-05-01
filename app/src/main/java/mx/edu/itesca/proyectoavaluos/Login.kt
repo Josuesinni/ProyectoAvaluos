@@ -1,7 +1,10 @@
 package mx.edu.itesca.proyectoavaluos
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.provider.Settings.Global
 import android.util.Patterns
 import android.view.View
 import android.widget.Button
@@ -19,6 +22,9 @@ import com.google.firebase.auth.auth
 
 class Login : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
+    object Global{
+        var preferencias_compartidas="sharedPreferences"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -63,19 +69,23 @@ class Login : AppCompatActivity() {
         error.visibility = if(visible) View.VISIBLE else View.INVISIBLE
     }
 
-    /*public override fun onStart() {
-        super.onStart()
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            goToMain(currentUser)
-        }
-    }*/
+    fun guardar_sesion(correo: String, proveedor: String) {
+        var guardar_sesion: SharedPreferences.Editor = this.getSharedPreferences(
+            Global.preferencias_compartidas,
+            Context.MODE_PRIVATE
+        ).edit()
+        guardar_sesion.putString("Correo",correo);
+        guardar_sesion.putString("Proveedor",proveedor);
+        guardar_sesion.apply()
+        guardar_sesion.commit()
+    }
 
     fun login(email:String,password:String){
         auth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this){
                 task->
             if (task.isSuccessful){
                 val user=auth.currentUser
+                guardar_sesion(task.result.user?.email.toString(),"Usuario/Contraseña")
                 showError(visible = false)
                 goToInicio(user!!)
             }else{

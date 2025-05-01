@@ -2,6 +2,7 @@ package mx.edu.itesca.proyectoavaluos
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Patterns
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -47,6 +48,15 @@ class Registro : AppCompatActivity() {
 
             if(email.text.isEmpty() || password.text.isEmpty() || confPass.text.isEmpty() || usuario.text.isEmpty() || tel.text.isEmpty()){
                 errorTv.text = "Todos los campos deben de ser llenados"
+                errorTv.visibility = View.VISIBLE
+            }else if(!Patterns.EMAIL_ADDRESS.matcher(email.text).matches()){
+                errorTv.text = "El correo no cuenta con el formato correcto"
+                errorTv.visibility = View.VISIBLE
+            }else if(password.text.length<6){
+                errorTv.text = "La contraseña debe contener un minímo de 6 carácteres"
+                errorTv.visibility = View.VISIBLE
+            }else if(password.text===confPass.text){
+                errorTv.text = "Las contraseñas no coinciden"
                 errorTv.visibility = View.VISIBLE
             } else {
                 errorTv.visibility = View.INVISIBLE

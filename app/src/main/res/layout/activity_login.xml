@@ -46,26 +46,27 @@
         android:id="@+id/et_usuario"
         android:layout_width="match_parent"
         android:layout_height="@dimen/alturaInputs"
-        android:ems="10"
-        android:hint="@string/phUsuario"
-        android:inputType="text"
         android:layout_marginLeft="60dp"
         android:layout_marginRight="60dp"
         android:layout_marginBottom="20dp"
-        android:textColor="@color/black"
-        />
+        android:ems="10"
+        android:hint="Correo"
+        android:inputType="text"
+        android:maxLength="255"
+        android:textColor="@color/black" />
 
     <EditText
         android:id="@+id/et_password"
         android:layout_width="match_parent"
         android:layout_height="@dimen/alturaInputs"
-        android:ems="10"
-        android:hint="@string/phPassw"
-        android:inputType="textPassword"
         android:layout_marginLeft="60dp"
         android:layout_marginRight="60dp"
         android:layout_marginBottom="20dp"
-        android:textColor="@color/black"/>
+        android:ems="10"
+        android:hint="@string/phPassw"
+        android:inputType="textPassword"
+        android:maxLength="30"
+        android:textColor="@color/black" />
 
     <TextView
         android:id="@+id/textView3"

@@ -1,5 +1,6 @@
 package mx.edu.itesca.proyectoavaluos
 
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -12,6 +13,7 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.core.os.bundleOf
+import java.util.Calendar
 
 class AgendarCita : Fragment() {
 
@@ -32,8 +34,28 @@ class AgendarCita : Fragment() {
         val numero = arguments?.getString("numero")
         val fecha = arguments?.getString("fecha")
         val citaId = arguments?.getString("id")
-        Log.d("Cita",citaId.toString())
         val tipo = arguments?.getBoolean("tipo")
+
+        fechaEditText.setOnClickListener {
+            val c = Calendar.getInstance()
+            val year = c.get(Calendar.YEAR)
+            val month = c.get(Calendar.MONTH)
+            val day = c.get(Calendar.DAY_OF_MONTH)
+            val datePickerDialog = context?.let { it1 ->
+                DatePickerDialog(
+                    it1,
+                    { view, year, monthOfYear, dayOfMonth ->
+                        val dat = (dayOfMonth.toString() + "-" + (monthOfYear + 1) + "-" + year)
+                        fechaEditText.setText(dat)
+                    },
+                    year,
+                    month,
+                    day
+                )
+            }
+            datePickerDialog?.show()
+        }
+
 
         if (!nombre.isNullOrEmpty()) nombreEditText.setText(nombre)
         if (!numero.isNullOrEmpty()) numeroEditText.setText(numero)

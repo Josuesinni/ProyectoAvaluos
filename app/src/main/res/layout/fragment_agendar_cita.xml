@@ -78,6 +78,7 @@
                 android:ems="8"
                 android:hint="Nombre / Empresa"
                 android:inputType="text"
+                android:maxLength="255"
                 android:text=""
                 android:textColor="@color/black" />
 
@@ -100,6 +101,7 @@
                 android:ems="10"
                 android:hint="Número de contacto"
                 android:inputType="number"
+                android:maxLength="10"
                 android:textColor="@color/black" />
 
             <TextView
